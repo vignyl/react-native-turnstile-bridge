@@ -1,0 +1,102 @@
+{
+  "name": "react-native-turnstile-bridge",
+  "version": "0.1.0",
+  "description": "Cloudflare Turnstile captcha for React Native and Expo. A self-resizing widget, a headless mode for invisible keys and a controller, on iOS, Android and web.",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index.ts",
+  "source": "src/index.ts",
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/*.test.ts",
+    "!**/*.test.tsx"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "bob build",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "prepack": "bob build"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "cloudflare",
+    "turnstile",
+    "captcha",
+    "webview",
+    "ios",
+    "android",
+    "web"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vignyl/react-native-turnstile-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vignyl/react-native-turnstile-bridge/issues"
+  },
+  "homepage": "https://github.com/vignyl/react-native-turnstile-bridge#readme",
+  "author": "MTVSinclaire",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-native": ">=0.72.0",
+    "react-native-webview": ">=13.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.19.2",
+    "@types/react": "~19.3.0",
+    "jest": "^30.0.0",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-native-builder-bob": "^0.40.0",
+    "react-native-webview": "^14.0.1",
+    "ts-jest": "^29.4.0",
+    "typescript": "~6.0.3"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.test.ts"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": {
+            "module": "node16",
+            "moduleResolution": "node16",
+            "jsx": "react-jsx",
+            "isolatedModules": true,
+            "types": [
+              "jest",
+              "node"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
